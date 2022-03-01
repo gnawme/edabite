@@ -5,12 +5,12 @@
 
 std::string getTriangleType(std::vector<int> arr) {
     constexpr char SCALENE[]{"scalene"};
-    constexpr char ISOCELES[]{"isoceles"};
+    constexpr char ISOSCELES[]{"isosceles"};
     constexpr char EQUILATERAL[]{"equilateral"};
     constexpr char NOSSING[]{"not a triangle"};
 
     constexpr std::size_t TRI_SIDES{3};
-    if (arr.size() > TRI_SIDES) {
+    if (arr.size() != TRI_SIDES) {
         return {NOSSING};
     }
 
@@ -20,7 +20,7 @@ std::string getTriangleType(std::vector<int> arr) {
         if (sides.count(side) == 3) {
             return {EQUILATERAL};
         } else if (sides.count(side) == 2) {
-            return {ISOCELES};
+            return {ISOSCELES};
         }
     }
 
@@ -32,5 +32,5 @@ int main() {
     std::cout << std::boolalpha << (getTriangleType(t1) == "scalene") << std::endl;
 
     std::vector<int> t2{4, 4, 7};
-    std::cout << std::boolalpha << (getTriangleType(t2) == "isoceles") << std::endl;
+    std::cout << std::boolalpha << (getTriangleType(t2) == "isosceles") << std::endl;
 }
