@@ -1,16 +1,14 @@
-#include <algorithm>
 #include <cmath>
 #include <iostream>
-#include <vector>
 
-double spigot(int n) {
-    auto arrayLen = std::floor((10 * n) / 3) + 1;
-    std::vector<int> digits;
-    std::fill_n(digits, arrayLen, 2);
-    for (auto i = 0; i < n; ++i) {
-    }
+double myPi(int n) {
+    auto powwow = std::pow(10.0, n);
+    auto shifted = std::round(M_PI * powwow);
+
+    return shifted / powwow;
 }
 
-double myPi(int n) {}
-
-int main() {}
+int main() {
+    auto t1 = 5;
+    std::cout << "PI to " << t1 << " places: " << myPi(t1) << std::endl;
+}
